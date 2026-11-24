@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light;
+  --ink: #122831;
+  --sea: #276b65;
+  --paper: #f4f7f5;
+  --line: #c8d6d2;
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid #df8e47; outline-offset: 5px; }
+.wrap { width: min(100% - 3rem, 76rem); margin-inline: auto; }
+.masthead { background: #102833; color: white; }
+.bar { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.wordmark { font: 700 2rem Georgia, serif; letter-spacing: -.04em; text-decoration: none; }
+.wordmark span { color: #70bab0; }
+nav { display: flex; flex-wrap: wrap; gap: .4rem clamp(.8rem, 3vw, 2rem); font-size: .95rem; }
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; text-underline-offset: .3em; }
+.hero { position: relative; isolation: isolate; display: grid; align-items: stretch; min-height: clamp(34rem, 55vw, 44rem); color: white; background: #244450; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 57% 53%; z-index: -2; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #091f2ce8 0%, #0b2633bc 25%, #10283325 72%), linear-gradient(0deg, #10283372, transparent 50%); }
+.hero-copy { align-self: center; padding-block: 3rem; }
+.eyebrow { font-size: .95rem; color: #d4f4ec; font-weight: 650; }
+h1, h2 { font-family: Georgia, serif; letter-spacing: -.04em; }
+h1 { font-size: clamp(3rem, 7.7vw, 7rem); font-weight: 500; line-height: .99; margin: .75rem 0 1.75rem; }
+.button { display: inline-block; background: #d5eee7; color: #142e34; font-size: 1rem; font-weight: 650; padding: .75rem 1.05rem; border-radius: .2rem; text-decoration: none; }
+.button:hover { background: white; }
+.journal { padding-block: clamp(2.8rem, 6vw, 5rem); }
+section + section { margin-top: clamp(3rem, 7vw, 5.5rem); }
+h2 { font-size: clamp(2.3rem, 4.8vw, 4rem); line-height: 1.04; margin: 0 0 .7rem; font-weight: 500; }
+.outing { border-top: 1px solid var(--line); padding-top: 1.4rem; margin-top: 1.25rem; }
+.outing-card { position: relative; display: block; width: fit-content; max-width: 100%; cursor: pointer; list-style: none; border-radius: .2rem; }
+.outing-card::-webkit-details-marker { display: none; }
+.outing-card:focus-visible { outline: 3px solid #df8e47; outline-offset: 5px; }
+.outing-card h3 { padding-right: 2rem; font: 500 clamp(1.65rem, 4vw, 2.45rem)/1.15 Georgia, serif; margin: 0; }
+.outing-card:hover h3 { color: var(--sea); }
+.outing-card::after { content: ""; position: absolute; top: .55rem; right: .3rem; width: .55rem; height: .55rem; border: solid var(--sea); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.outing details[open] .outing-card::after { transform: rotate(225deg); top: .8rem; }
+.outing-location { margin: .45rem 0 0; line-height: 1.5; }
+.outing-cover { display: block; margin-top: .85rem; width: min(100%, 29rem); }
+.outing-cover img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: .2rem; }
+.outing-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1rem; margin-top: 1.5rem; }
+.outing-gallery img { aspect-ratio: 1; object-fit: contain; background: #e7eeeb; }
+.boat-details { color: var(--sea); font-weight: 650; margin: 0 0 1.5rem; }
+.gallery { display: grid; grid-template-columns: 1.65fr 1fr 1fr; gap: 1rem; }
+figure { margin: 0; min-width: 0; }
+figure a { display: block; }
+figure img { display: block; width: 100%; height: clamp(13rem, 22vw, 20rem); object-fit: cover; border-radius: .2rem; }
+figcaption { padding-top: .45rem; font-size: .95rem; }
+footer { border-top: 1px solid var(--line); padding-block: 1.25rem 2rem; }
+@media (max-width: 650px) {
+  .wrap { width: calc(100% - 2rem); }
+  .hero { min-height: 34rem; }
+  .hero-copy { align-self: end; }
+  .hero::before { background: linear-gradient(0deg, #091f2cf2, #10283355 57%, transparent 90%); }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wide { grid-column: span 2; }
+  .outing-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
